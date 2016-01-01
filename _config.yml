@@ -83,5 +83,5 @@ theme: icarus
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/ohmerhe/ohmerhe.github.io.git
+  repository: git@github.com:ohmerhe/ohmerhe.github.io.git
   branch: master

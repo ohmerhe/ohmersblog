@@ -18,7 +18,7 @@ since: 2015 # The start year showing in your copyright section.
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: /child/
+url: http://ohmerhe.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -71,10 +71,10 @@ pagination_dir: page
 theme: icarus
 
 # Disqus
-# disqus_shortname: hexo-theme-icarus
+disqus_shortname: ohmersblog
 
 # DuoShuo
-duoshuo_shortname: ohmerhe
+# duoshuo_shortname: ohmerhe
 
 # Swiftype
 # swiftype_install_key: XXX_XXXXXXXXXXXXXXXX

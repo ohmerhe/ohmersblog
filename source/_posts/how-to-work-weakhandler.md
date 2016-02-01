@@ -1,6 +1,9 @@
 title: WeakHandler是怎么解决Handler的内存问题的
 date: 2016-01-18 23:32:01
 tags: 
+- handler
+- 内存泄露
+- android
 
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/bridge_huge.jpg?imageView2/1/w/200
 banner: http://7xpox6.com1.z0.glb.clouddn.com/bridge_huge.jpg?imageView2/1/w/1024/h/460 

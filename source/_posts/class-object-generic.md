@@ -1,4 +1,4 @@
-title: 类与对象 —— 泛型
+title: kotlin类与对象 —— 泛型
 date: 2015-12-22 23:08:50
 tags:
 - kotlin

@@ -1,4 +1,4 @@
-title: 类与对象 —— object
+title: kotlin类与对象 —— object
 date: 2015-12-19 19:02:38
 tags: 
 - kotlin

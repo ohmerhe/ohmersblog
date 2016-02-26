@@ -1,9 +1,9 @@
-title: 提升gradle编译速度实践
+title: 优化gradle编译速度实践
 date: 2016-02-26 16:25:44
 tags: 
 
-- Gradle
-- Android
+- gradle
+- android
 - Android Studio
 - 编译优化
 - 安卓
@@ -18,13 +18,17 @@ banner: http://7xpox6.com1.z0.glb.clouddn.com/image/plan_landed.jpg?imageView2/1
 
 <!--more-->
 
-本文优化的实践主要是参考[Android Weekly](http://androidweekly.net/)上推荐的一片文章[6 tips to speed up your Gradle build](https://medium.com/@shelajev/6-tips-to-speed-up-your-gradle-build-3d98791d3df9#.3ait6jmd3)和gradle官方文档。
+本文优化的实践主要是参考[Android Weekly](http://androidweekly.net/)上推荐的一篇文章[6 tips to speed up your Gradle build](https://medium.com/@shelajev/6-tips-to-speed-up-your-gradle-build-3d98791d3df9#.3ait6jmd3)和[gradle官方文档](https://docs.gradle.org/current/userguide/userguide.html)。
 
 先看看我们都有神马方法可以用先：
 
 ## Gradle Daemon
 
-Gradle Daemon是gradle官方极力推荐的一个优化gradle编译速度的方法在1.0之前的版本就已经提供，经过这么多的版本迭代，已经非常成熟。如果你的gradle版本足够新并且没有开启Daemon的话，在你的编译完成之后，经常会看到这样一句话：`This build could be faster, please consider using the Gradle Daemon: https://docs.gradle.org/2.8/userguide/gradle_daemon.html`。
+Gradle Daemon是gradle官方极力推荐的一个优化gradle编译速度的方法在1.0之前的版本就已经提供，经过这么多的版本迭代，已经非常成熟。如果你的gradle版本足够新并且没有开启Daemon的话，在你的编译完成之后，经常会看到这样一句话：
+
+```
+This build could be faster, please consider using the Gradle Daemon: https://docs.gradle.org/2.8/userguide/gradle_daemon.html
+```
 
 Gradle Daemon是一个长期生存（3个小时不被调用会自动结束）、能够提升编译速度的后台进程。它的优化原理有几个方面：
 

@@ -7,8 +7,8 @@ tags:
 - NAS
 - Raspberry Pi
 
-thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/snow_bridge.jpg?imageView2/1/w/200
-banner: http://7xpox6.com1.z0.glb.clouddn.com/image/snow_bridge.jpg?imageView2/1/w/1024/h/460 
+thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/lake_forest.jpg?imageView2/1/w/200
+banner: http://7xpox6.com1.z0.glb.clouddn.com/image/lake_forest.jpg?imageView2/1/w/1024/h/460 
 
 ---
 

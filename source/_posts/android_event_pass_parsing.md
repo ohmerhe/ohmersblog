@@ -18,7 +18,7 @@ banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-137723945.jpg?im
 
 先贴一张个人总结的事件传递的流程图，如果可以将这张图清楚的理解，下面的文章就可以不用看了，因为这篇文章的主要内容也就是围绕这幅图展开。
 
-![事件分发流程图](https://gitlab.yeshj.com/uploads/android_demos/android_issues/ea9effbc2b/android_view_.png)
+![事件分发流程图](http://7xpox6.com1.z0.glb.clouddn.com/image/android_view_event_pass.jpg)
 
 ## ViewGroup中的事件处理
 

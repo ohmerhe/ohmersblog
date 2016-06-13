@@ -1,4 +1,4 @@
-title: 树莓派安装MySQL(记)
+title: 树莓派安装MySQL
 date: 2016-06-04 00:12:53
 tags: 
 - 树莓派

@@ -1,4 +1,4 @@
-title: 树莓派安装Nginx和PHP(记)
+title: 树莓派安装Nginx和PHP
 date: 2016-06-10 20:56:08
 tags: 
 - 树莓派

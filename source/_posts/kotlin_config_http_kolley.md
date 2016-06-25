@@ -1,8 +1,8 @@
 title: Kotlin实现配置化网络请求
 date: 2016-06-13 20:23:05
 tags: 
-- Kotlin
-- Android
+- kotlin
+- android
 - Volley
 - OKHttp
 - 网络请求

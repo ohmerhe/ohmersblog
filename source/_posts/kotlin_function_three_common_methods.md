@@ -68,6 +68,14 @@ val names = arrayOf("James", "Tom", "Jack", "Kobe");
 val namesLength = names.map { it.length }
 ```
 
+映射函数是将一个集合映射成另外一种集合，所以当你需要见一个HaspMap映射成一个List的时候，会非常方便。
+
+```
+val params = mapOf("limit" to "10", "offset" to "20", "order" to "asc")
+val s = params.map { "${it.key}=${it.value}" }.joinToString("&")
+// s = limit=10&offset=20&order=asc
+```
+
 同`filter`相似，kotlin也提供的`mapIndexed`的类似方法方便使用，针对`Map`类型的集合也有`mapKeys`和`mapValues`的封装。
 
 ## Reduce
@@ -91,6 +99,8 @@ String result = sb.toString();
 val texts = arrayOf("芦花丛中一扁舟", "俊杰俄从此地游", "义士若能知此理", "反躬难逃可无忧")
 val result = texts.map { it.substring(0,1) }.reduce { r, s -> "$r$s"}
 ```
+
+最后得到的结果是`卢俊义反`。
 
 ## 函数式编程
 

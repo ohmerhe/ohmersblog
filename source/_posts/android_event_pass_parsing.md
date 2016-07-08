@@ -43,7 +43,7 @@ ViewGroup默认并不会中断该事件，而是直接返回false。在自定义
 public boolean onInterceptTouchEvent(MotionEvent ev) {  
     return false;  
 } 
-``` 
+```
 
 如果事件在当前视图没有被截取，ViewGroup会继续分发事件，判断自己是否有子视图符合接收该事件的条件，如果有的话，则直接将事件分发给该子视图，并返回true代表在这层事件已经被分发出去。该视图的子视图可以是一个普通的view，也可以是一个Viewgroup。当子视图是一个View的时候，请参考下面View的事件处理部分。当子视图是一个ViewGroup，则重复前面描述的分发逻辑。
 

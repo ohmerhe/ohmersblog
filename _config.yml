@@ -85,3 +85,9 @@ deploy:
   type: git
   repository: git@github.com:ohmerhe/ohmerhe.github.io.git
   branch: master
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:

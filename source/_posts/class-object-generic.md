@@ -18,14 +18,14 @@ banner: http://7xpox6.com1.z0.glb.clouddn.com/sunrise.jpg?imageView2/1/w/1024/h/
 
 <!--more-->
 
-```
+```kotlin
 class Box<T>(t: T) {
     var value = t
 }
 ```
 然后可以这样使用
 
-```
+```kotlin
 val box: Box<Int> = Box<Int>(1)
 
 // 或者
@@ -37,12 +37,12 @@ val box = Box(1) // 编译器会进行类型推断
 
 和类的继承一样，`Kotlin`中使用`:`代替`extends`对泛型的的类型上限进行约束。
 
-```
+```kotlin
 class SwipeRefreshableView<T : View>{}
 ```
 不过这里你可以进行多个类型的上限约束：
 
-```
+```kotlin
 class SwipeRefreshableView<T>
     where T : View,
           T : Refreshable {
@@ -63,31 +63,39 @@ fun <T> cloneWhenGreater(list: List<T>, threshold: T): List<T>
 
 `Kotlin`中引入两个新的泛型修饰符`in`和`out`，要解释这两个关键字的用法，我们先从另外两个概念说起‘covariant（协变性）’和‘contravariance（逆变性）’（不知道的可以[参考](http://www.cnblogs.com/Figgy/p/4575719.html)）。我们都知道在java中List不是协变的，而Array是协变的：
 
-```
+
+```kotlin
 Integer[] intArray = new Integer[10];
 Number[] numberArray = intArray;
 numberArray[0] = 1.0f;
 ```
+
 在上面的代码中，`Integer[]`被认为是`Number[]`的子类型，所以可以将`intArray `赋值给`numberArray`，但是在随后的代码，我们将`1.0f`赋给`numberArray[0]`，因为在这里看来，将一个浮点型赋给一个Number对象不会有什么问题。最后悲剧发生了，当执行时，程序crash了。
 
 但是当你使用泛型的的时候：
 
-```
+
+```kotlin
 List<String> strs = new ArrayList<>();
 List<Object> objs = strs; // error, compiler complain
 ```
+
 `List<String>`并不是`List<Object>`的子类型，于是编译器告诉你，不能直接赋值。或许你会说我们可以使用通配符`? extends T`让它变得协变。
 
-```
+
+```kotlin
 List<String> strs = new ArrayList<String>();
 strs.add("0");
 strs.add("1");
 List<? extends Object> objs = strs;
 //编译通过
-```
-`List<String>`是`List<? extends Object>`的子类，所以上面的代码的确能够编译运行，但是当你尝试为`objs`添加内容时：
 
 ```
+
+`List<String>`是`List<? extends Object>`的子类，所以上面的代码的确能够编译运行，但是当你尝试为`objs`添加内容时：
+
+
+```kotlin
 //然后添加一个int型试试
 objs.add(1); // error, compiler complain
 // 编译器编译出错
@@ -96,11 +104,13 @@ objs.add(1); // error, compiler complain
 objs.add("1"); // error, compiler complain
 // 编译出错
 ```
+
 对于objs并不会因为`objs = strs;`的赋值，而将`objs`的泛型类型转化为`String`类型，所以在不能判断objs的泛型类型的情况下，往objs添加任何类型的对象都是不被允许的。但是我们明确知道objs的所有类型上限（upper bound），于是我们可以通过`objs.get(0)`获取Object的对象。
 
  小结一下，我们可以用通配符`? extends T`让泛型类变得协变，但是对于具体泛型类型的对象我们不能赋值，只能获取。于是在下面的假设中java就可以这么写：
 
-```
+
+```kotlin
 interface Source<T> {
     public T getT();
     public void setT(T t);
@@ -112,9 +122,11 @@ public void copy(Source<String> strs){
 	String str = (String) objs.getT();
 }
 ```
+
 在`Kotlin`中就可以这么写：
 
-```
+
+```kotlin
 abstract class Source<T> {
     abstract fun getT(): T
     abstract fun setT(t: T)  
@@ -126,11 +138,13 @@ fun copyT(strs: Source<String>){
     objs.getT()
 }
 ```
+
 上面的`out Any?`可以用`*`代替。
 
 如果我们可以确定`Source`这个类不会有`abstract fun setT(t: T)`类似的操作，我们可以这样写：
 
-```
+
+```kotlin
 abstract class Source<out T> {
     abstract fun getT(): T
     // 如果下面出现会编译不过
@@ -152,7 +166,7 @@ fun copyT(strs: Source<String>){
 
 如果在泛型类型使用测，在对应泛型的具体类型前面使用`out`，则等同于使用`java`中的`extends`字段，`in`则等同于`super`。
 
-```
+```kotlin
 fun copy(from: Array<out String>, to: Array<in String>) {
     assert(from.size == to.size)
     for (i in from.indices)

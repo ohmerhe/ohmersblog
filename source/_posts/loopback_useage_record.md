@@ -29,7 +29,7 @@ tags: LoopBack, MySQL
 
 在模型的json文件中`common/model/category.json`添加Mysql的配置
 
-```
+```json
 {
   "name": "Category",
   ...
@@ -38,7 +38,6 @@ tags: LoopBack, MySQL
   }
   ...
 }
-
 ```
 
 更多Model的Json定义参考[Model definition JSON file](https://docs.strongloop.com/display/public/LB/Model+definition+JSON+file)
@@ -47,7 +46,7 @@ tags: LoopBack, MySQL
 
 同样在模型定义的json文件中，`common/model/category.json`找到`properties`模块的配置，为需要自定义表列名的属性下添加`msql`配置信息
 
-```
+```json
 {
   "name": "category",
   ...
@@ -89,31 +88,26 @@ exists			| /exists			| GET
 
 这些方法的定义和注册都可以在`/node_modules/loopback/lib/persisted-model.js`文件中看到。如`find`
  
-```
-
+```javascript
 PersistedModel.find = function find(filter, cb) {
   throwNotAttached(this.modelName, 'find');
 };
-
- setRemoting(PersistedModel, 'find', {
+setRemoting(PersistedModel, 'find', {
   description: 'Find all instances of the model matched by filter from the data source.',
   accessType: 'READ',
   accepts: {arg: 'filter', type: 'object', description: 'Filter defining fields, where, include, order, offset, and limit'},
   returns: {arg: 'data', type: [typeName], root: true},
   http: {verb: 'get', path: '/'}
 });
- 
 ```
 
 参照上面的方法我们可以自定义一些需要的方法
 
-```
+```javascript
 module.exports = function(Person){
-     
     Person.greet = function(msg, cb) {
       cb(null, 'Greetings... ' + msg);
     }
-     
     Person.remoteMethod(
         'greet', 
         {
@@ -138,9 +132,8 @@ Greetings... John
 
 loopback提供了一系列方法可以改变资源返回，比如我需要将请求到的资源列表包装在一个对象的`list`下返回。
 
-
-```
-  Category.afterRemote('find', function(ctx, remoteMethodOutput, next) {
+```javascript
+Category.afterRemote('find', function(ctx, remoteMethodOutput, next) {
     if (ctx.result && Array.isArray(remoteMethodOutput)) {
       ctx.result = {
         "list": remoteMethodOutput
@@ -151,7 +144,7 @@ loopback提供了一系列方法可以改变资源返回，比如我需要将请
 };
 ```
 
-```
+```json
 自定义返回结果前
 [
 	{...},
@@ -159,7 +152,6 @@ loopback提供了一系列方法可以改变资源返回，比如我需要将请
 	{...},
 	{...}
 ]
-
 自定义返回结果后
 {
 	"list" : [

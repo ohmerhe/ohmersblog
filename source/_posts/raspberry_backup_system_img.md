@@ -21,13 +21,13 @@ banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-156596865.jpg?im
 
 进入树莓派系统，下载脚本文件：
 
-```
+```bash
 wget https://raw.githubusercontent.com/billw2/rpi-clone/master/rpi-clone
 ```
 
 为脚本设置执行权限：
 
-```
+```bash
 sudo chmod +x rpi-clone
 ```
 
@@ -35,7 +35,7 @@ sudo chmod +x rpi-clone
 
 在插入u盘前，先运行`sudo fdisk -l`查看树莓派的磁盘。SD卡插槽上正在运行系统的SD卡应该显示为/dev/mmcblk0。
 
-```
+```bash
 Device         Boot  Start      End  Sectors  Size Id Type
 /dev/mmcblk0p1        8192   137215   129024   63M  c W95 FAT32 (LBA)
 /dev/mmcblk0p2      137216 31116287 30979072 14.8G 83 Linux
@@ -43,7 +43,7 @@ Device         Boot  Start      End  Sectors  Size Id Type
 
 插入U盘，再运行上面的命令，可以看到增加了下面的内容。
 
-```
+```bash
 Device     Boot Start      End  Sectors  Size Id Type
 /dev/sda1  *       64 15771647 15771584  7.5G  b W95 FAT32
 ```
@@ -54,7 +54,7 @@ Device     Boot Start      End  Sectors  Size Id Type
 
 运行命令
 
-```
+```bash
 sudo ./rpi-clone sda -f
 ```
 

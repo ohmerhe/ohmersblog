@@ -22,9 +22,8 @@ banner: http://7xpox6.com1.z0.glb.clouddn.com/bridge_huge.jpg?imageView2/1/w/102
 
 <!--more-->
 
-```
+```java
 public class SampleActivity extends Activity {
-
   private final Handler mHandler = new Handler() {
     @Override
     public void handleMessage(Message msg) {
@@ -39,7 +38,7 @@ public class SampleActivity extends Activity {
 
 在发起一个延时操作时，通常会这样写：
 
-```
+```java
 mHandler.postDelayed(new Runnable() {
   @Override
   public void run() { /* ... */ }
@@ -67,28 +66,23 @@ mHandler.postDelayed(new Runnable() {
 
 WeakHandler强引用一个Handler子类(ExecHandler)的对象，然后通过自定义的一个Callback将Handler的消息处理转发到这个callback中，这样就不必为了处理消息而构建一个匿名内部handler类对象。WeakHandler对象（通过ExecHandler对象）仅仅维持对callback对象的弱引用。这样即使callback对象持有对Activity对象的引用，由于其本身不会产生泄露，因此
 
-```
+```java
 private static class ExecHandler extends Handler {
     private final WeakReference<Callback> mCallback;
-
     ExecHandler() {
         this.mCallback = null;
     }
-
     ExecHandler(WeakReference<Callback> callback) {
         this.mCallback = callback;
     }
-
     ExecHandler(Looper looper) {
         super(looper);
         this.mCallback = null;
     }
-
     ExecHandler(Looper looper, WeakReference<Callback> callback) {
         super(looper);
         this.mCallback = callback;
     }
-
     public void handleMessage(@NonNull Message msg) {
         if(this.mCallback != null) {
             Callback callback = (Callback)this.mCallback.get();
@@ -105,27 +99,23 @@ private static class ExecHandler extends Handler {
 
 WeakHandler内部定义一个WeakRunnable用来包装我们传递进去的Runnable对象，在WeakRunnable中维持对Runnable对象的弱引用，从而解决了Runnable对象不释放而造成的内存泄露问题。
 
-```
+```java
 static class WeakRunnable implements Runnable {
     private final WeakReference<Runnable> mDelegate;
     private final WeakReference<WeakHandler.ChainedRef> mReference;
-
     WeakRunnable(WeakReference<Runnable> delegate, WeakReference<WeakHandler.ChainedRef> reference) {
         this.mDelegate = delegate;
         this.mReference = reference;
     }
-
     public void run() {
         Runnable delegate = (Runnable)this.mDelegate.get();
         WeakHandler.ChainedRef reference = (WeakHandler.ChainedRef)this.mReference.get();
         if(reference != null) {
             reference.remove();
         }
-
         if(delegate != null) {
             delegate.run();
         }
-
     }
 }
 ```
@@ -135,7 +125,7 @@ static class WeakRunnable implements Runnable {
 
 在使用WeakHandler时，应该在activity（或者fragment）中声明一个全局变量，以保证WeakHandler的生命周期和activity保持一致。
 
-```
+```java
 Activity{
 	private WeakHandler mHandler = new WeakHandler();
 }

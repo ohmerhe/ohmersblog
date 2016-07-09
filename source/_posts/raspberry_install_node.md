@@ -18,7 +18,7 @@ banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-138112499.jpg?im
 
 <!-- more -->
 
-```
+```bash
 wget http://node-arm.herokuapp.com/node_latest_armhf.deb 
 sudo dpkg -i node_latest_armhf.deb
 ```
@@ -29,13 +29,13 @@ sudo dpkg -i node_latest_armhf.deb
 
 运行查看本机的CPU信息
 
-```
+```bash
 cat /proc/cpuinfo
 ```
 
 可以得到类似下面的输出
 
-```
+```bash
 processor	: 0
 model name	: ARMv7 Processor rev 5 (v7l)
 BogoMIPS	: 38.40
@@ -55,27 +55,25 @@ CPU architecture: 7
 CPU variant	: 0x0
 CPU part	: 0xc07
 CPU revision	: 5
-
 ...
-
 ```
 
 根据输出可以确定我们该选择`armv7`的包。下载相应的包(当前LTS版最新为4.4.5)
 
-```
+```bash
 wget https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-armv7l.tar.gz
 ```
 
 下载完成后直接将包解压到对应的目录，并且重命名
 
-```
+```bash
 sudo tar -xzf node-v4.4.5-linux-armv7l.tar.gz -C /usr/local/
 mv /usr/local/node-v4.4.5-linux-armv7l /usr/local/node
 ```
 
 PS： 如果你下载的是老版本的话，可能需要自行编译
 
-```
+```bash
 ./configure
 make
 sudo make install
@@ -83,13 +81,13 @@ sudo make install
 
 添加到系统路径中
 
-```
+```bash
 sudo vim ~/.bashrc
 ```
 
 在最后一行加上
 
-```
+```bash
 PATH=$PATH:/usr/local/node/bin
 ```
 
@@ -97,7 +95,7 @@ PATH=$PATH:/usr/local/node/bin
 
 ### 检测安装
 
-```
+```bash
 pi@raspberrypi:~ $ node -v
 v4.4.5
 pi@raspberrypi:~ $ npm -v
@@ -106,19 +104,19 @@ pi@raspberrypi:~ $ npm -v
 
 ## 安装cnpm
 
-```
+```bash
 npm install cnpm -g --registry=https://registry.npm.taobao.org
 ```
 
 ## 安装LoopBack
 
-```
+```bash
 cnpm install -g strongloop
 ```
 
 安装失败，原因不明，试试`npm`，安装成功。（对于cnpm和npm的差别不是很了解，不过自己平时在安装的时候可以先用`cnpm`安装，不行的话再尝试`npm`）
 
-```
+```bash
 npm install -g strongloop
 ```
 

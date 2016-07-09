@@ -26,7 +26,7 @@ banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-137723945.jpg?im
 
 在ViewGroup中默认先将事件分发给onInterceptTouchEvent方法，通过该方法的返回来判断当前视图是否中断事件的进一步分发，如果onInterceptTouchEvent返回true，则该事件认为已经被消耗不会继续分发下去。
 
-```
+```java
 if (!disallowIntercept) {  
     intercepted = onInterceptTouchEvent(ev);  
     ev.setAction(action); // restore action in case it was changed  
@@ -37,7 +37,7 @@ if (!disallowIntercept) {
 
 ViewGroup默认并不会中断该事件，而是直接返回false。在自定义的视图中，可以通过重写onInterceptTouchEvent返回true而中断所有事件的分发。
 
-```
+```java
 public boolean onInterceptTouchEvent(MotionEvent ev) {  
     return false;  
 } 
@@ -47,7 +47,7 @@ public boolean onInterceptTouchEvent(MotionEvent ev) {
 
 如果没有子视图消耗掉当前的事件，这个事件最终被传递到ViewGroup本身，这个时候ViewGroup将作为一个普通的View继续处理事件（详细参见后面的View处理事件部分）
     
-```
+```java
 if (!canViewReceivePointerEvents(child)|| !isTransformedTouchPointInView(x, y, child, null)) {  
     continue;  
 }
@@ -76,7 +76,7 @@ if (dispatchTransformedTouchEvent(ev, false, child, idBitsToAssign)) {
 
 View中的事件分发仍然是从dispatchTouchEvent方法开始。该方法中首先会将事件分发给调用到mOnTouchListener，mOnTouchListener是我们在使用view的setOnTouchListener方法时注册进去的监听。如果我们在注册进去监听的onTouch方法中处理了该事件并且返回了true则代表该事件已经被消耗，事件将不会在继续传递。
       
-```
+```java
 ListenerInfo li = mListenerInfo;  
 if (li != null && li.mOnTouchListener != null && (mViewFlags & ENABLED_MASK) == ENABLED  
     && li.mOnTouchListener.onTouch(this, event)) {  
@@ -90,7 +90,7 @@ if (li != null && li.mOnTouchListener != null && (mViewFlags & ENABLED_MASK) == 
 
 用户需用通过setOnClickListener或者setOnLongClickListener设置click的处理，如果我们设置了listener，则onTouchEvent分发完事件后会返回true通知该事件已经被消耗。
 
-```
+```java
 if (mPerformClick == null) {  
     mPerformClick = new PerformClick();  
 }  

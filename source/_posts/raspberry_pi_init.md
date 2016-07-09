@@ -30,10 +30,9 @@ banner: http://7xpox6.com1.z0.glb.clouddn.com/image/lake_forest.jpg?imageView2/1
 
 raspberrypi系统默认提供的用户为`pi`，密码为`raspberry`，so，第一步我们就是要激活`root`帐号：
 
-```
+```bash
 // 设置 root 账号的密码
 sudo passwd root
-
 // 启用 root 账号登录
 sudo passwd --unlock root
 ```
@@ -45,27 +44,27 @@ sudo passwd --unlock root
 
 在服务端生成`.ssh/authorized_keys`文件
 
-```
+```bash
 mkdir .ssh
 touch .ssh/authorized_keys
 ```
 
 将本地的公匙复制到`.ssh/authorized_keys`文件中
 
-```
+```bash
 echo XXXX >> .ssh/authorized_keys #XXXX替换成对应的公匙
 ```
 
 或者直接执行
 
-```
+```bash
 cat ~/.ssh/id_rsa.pub | ssh pi@192.168.199.121 'mkdir -p .ssh && cat - >> ~/.ssh/authorized_keys'
 ```
 
 ### 网络配置
 执行`ifconfig`命令,查看网卡物理地址，将该网址在路由器上绑定到固定的ip
 
-```
+```bash
 eth0      Link encap:Ethernet  HWaddr 38:22:db:e7:ed:0c // 物理地址
           UP BROADCAST MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
@@ -75,19 +74,19 @@ eth0      Link encap:Ethernet  HWaddr 38:22:db:e7:ed:0c // 物理地址
 ```
 然后执行`sudo nano /etc/network/interfaces`，将`manual`改为`dhcp`
 
-```
+```bash
 iface eth0 inet dhcp
 ```
 
 如果你有无线网卡的话，还要进行无线网络的配置，首先一样的需要将无线网络的网卡地址在路由器上绑定到一个固定ip。
 
-```
+```bash
 wlan0     Link encap:Ethernet  HWaddr e2:42:06:3e:w5:4e  // 物理地址
 ```
 
 然后需要将无线网络的名称和密码设置一下
 
-```
+```bash
 iface wlan0 inet dhcp
 wpa-ssid 网络名称
 wpa-psk 网络密码
@@ -104,10 +103,9 @@ wpa-psk 网络密码
 
 国内有许多平台提供了树莓派的软件源的国内镜像，具体参考[镜像列表](https://segmentfault.com/a/1190000000503041)。这里选择阿里云的镜像地址：
 
-```
+```bash
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
 sudo vi /etc/apt/sources.list
-
 //将原来的注释掉，替换成如下软件源地址
 deb http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contrib
 deb-src http://mirrors.aliyun.com/raspbian/raspbian/ jessie main non-free contrib
@@ -117,7 +115,7 @@ PS：有些库国内镜像并没有及时同步，如果安装软件出现问题
 
 ### 安装常用软件
 
-```
+```bash
 sudo apt-get install vim wget -y
 ```
 
@@ -125,7 +123,7 @@ sudo apt-get install vim wget -y
 
 最后也来装个家庭内部NAS服务玩玩
 
-```
+```bash
 // 更新源
 sudo apt-get update
 // 安装samba
@@ -134,7 +132,7 @@ sudo apt-get install samba samba-common-bin -y
 
 创建samba文件夹
 
-```
+```bash
 mkdir /samba
 
 // 修改samba的访问权限
@@ -143,7 +141,7 @@ sudo chmod 777 /samba
 
 安装好samba后，需要配置samba分享的信息，编辑`/etc/samba/smb.conf`文件，在文件的末尾添加如下内容：
 
-```
+```bash
 [share]
    comment = share folder
    path = /samba
@@ -153,7 +151,7 @@ sudo chmod 777 /samba
    writable = yes
 ```
 
-```
+```bash
 # Path to the directory you want scanned for media files.
 #
 # This option can be specified more than once if you want multiple directories
@@ -182,18 +180,18 @@ db_dir=/samba/DLNA/db
 log_dir=/samba/DLNA/log
 ```
 
-```
+```bash
 $ sudo /etc/init.d/minidlna restart
 //查看状态
 $ sudo /etc/init.d/minidlna status 
 [ ok ] minidlna is running.
 ```
 
-```
+```bash
 sudo vim /etc/rc.local
 ```
 
-```
+```bash
 #!/bin/sh -e
 #
 # rc.local

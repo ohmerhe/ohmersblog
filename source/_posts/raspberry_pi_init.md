@@ -2,10 +2,6 @@ title: 树莓派入手，无显示器远程操作
 date: 2016-05-31 00:11:57
 tags: 
 - 树莓派
-- 安装
-- samba
-- NAS
-- Raspberry Pi
 
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/lake_forest.jpg?imageView2/1/w/200
 banner: http://7xpox6.com1.z0.glb.clouddn.com/image/lake_forest.jpg?imageView2/1/w/1024/h/460 

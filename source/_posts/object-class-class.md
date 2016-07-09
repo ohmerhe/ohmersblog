@@ -1,11 +1,7 @@
-title: kotlin类与对象 —— 类（一）
+title: Kotlin 类与对象 —— 类（一）
 date: 2016-01-02 16:01:28
 tags:
-- kotlin
-- class
-- 类
-- 继承
-- 委托
+- Kotlin
 
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/ski_evening.jpg?imageView2/1/w/200
 banner: http://7xpox6.com1.z0.glb.clouddn.com/ski_evening.jpg?imageView2/1/w/1024/h/460

@@ -1,10 +1,9 @@
-title: 树莓派安装Nginx和PHP
+title: 树莓派安装 Nginx 和 PHP
 date: 2016-06-10 20:56:08
 tags: 
 - 树莓派
-- Nginx
-- Php
-- Raspberry Pi
+- NGINX
+- PHP
 
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-138104577.jpg?imageView2/1/w/200
 banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-138104577.jpg?imageView2/1/w/1024/h/460 

@@ -1,12 +1,8 @@
-title: 优化gradle编译速度实践
+title: 优化 Gradle 编译速度实践
 date: 2016-02-26 16:25:44
 tags: 
-
-- gradle
-- android
-- Android Studio
-- 编译优化
-- 安卓
+- Gradle
+- Android
 
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/plan_landed.jpg?imageView2/1/w/200
 banner: http://7xpox6.com1.z0.glb.clouddn.com/image/plan_landed.jpg?imageView2/1/w/1024/h/460 

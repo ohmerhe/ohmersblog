@@ -1,11 +1,8 @@
-title: Kotlin函数式编程三板斧
+title: Kotlin 函数式编程三板斧
 date: 2016-07-05 22:06:41
 tags: 
-- reduce
-- filter
-- map
 - 函数式编程
-- kotlin
+- Kotlin
   
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/uploadPic?imageView2/1/w/200
 banner: http://7xpox6.com1.z0.glb.clouddn.com/image/uploadPic?imageView2/1/w/1024/h/460 

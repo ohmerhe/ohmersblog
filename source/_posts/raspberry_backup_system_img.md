@@ -1,8 +1,7 @@
-title: 用U盘为树莓派备份镜像
+title: 用 U 盘为树莓派备份镜像
 date: 2016-06-25 21:02:22
 tags: 
 - 树莓派
-- 备份
 
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-156596865.jpg?imageView2/1/w/200
 banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-156596865.jpg?imageView2/1/w/1024/h/460 

@@ -1,8 +1,8 @@
-title: LoopBack操作记录
+title: LoopBack 操作记录
 date: 2016-06-26 19:02:04
 tags: 
-- mysql
-- loopback
+- MySQL
+- LoopBack
   
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-153854891.jpg?imageView2/1/w/200
 banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-153854891.jpg?imageView2/1/w/1024/h/460 
@@ -10,7 +10,7 @@ banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-153854891.jpg?im
 ---
 
 
-tags: loopback, mysql
+tags: LoopBack, MySQL
 
 ## 什么是LoopBack
 

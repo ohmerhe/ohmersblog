@@ -1,9 +1,7 @@
 title: 安卓事件传递机制分析
 date: 2016-02-01 18:38:00
 tags: 
-- android
-- touchevent
-- 事件传递
+- Android
 
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-137723945.jpg?imageView2/1/w/200
 banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-137723945.jpg?imageView2/1/w/1024/h/460 

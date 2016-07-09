@@ -1,8 +1,7 @@
-title: 树莓派安装MySQL
+title: 树莓派安装 MySQL
 date: 2016-06-04 00:12:53
 tags: 
 - 树莓派
-- Raspberry Pi
 - MySQL
 
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/lovely_fox.jpg?imageView2/1/w/200

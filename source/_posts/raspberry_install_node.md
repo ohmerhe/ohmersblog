@@ -1,9 +1,8 @@
-title: 树莓派安装Node
+title: 树莓派安装 Node
 date: 2016-06-26 16:23:04
 tags: 
 - 树莓派
-- Node
-- Raspberry Pi
+- Node.js
 
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-138112499.jpg?imageView2/1/w/200
 banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-138112499.jpg?imageView2/1/w/1024/h/460 

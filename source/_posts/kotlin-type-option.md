@@ -3,8 +3,8 @@ date: 2016-07-14 18:52:57
 tags: 
 - Kotlin
   
-thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/uploadPic?imageView2/1/w/200
-banner: http://7xpox6.com1.z0.glb.clouddn.com/image/uploadPic?imageView2/1/w/1024/h/460 
+thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-138093189.jpg?imageView2/1/w/200
+banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-138093189.jpg?imageView2/1/w/1024/h/460 
 
 ---
 
@@ -12,6 +12,8 @@ banner: http://7xpox6.com1.z0.glb.clouddn.com/image/uploadPic?imageView2/1/w/102
 tags: Kotlin
 
 NullPointException (简称 NPE ) 被称作 [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions) 一直困扰着Java 和 Android 开发者。Kotlin 的类型系统中提供可选类型用于减少 NPE 问题带来的风险。
+
+<!-- more -->
 
 虽然，Kotlin 提供了可选类型用于减少 NPE 问题的风险，但是并没有办法完全消除 NPE 带来的隐患，本问将探讨如何巧妙地使用「可选型」更好的规避 NPE 的发生。
 

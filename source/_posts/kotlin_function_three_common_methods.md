@@ -4,8 +4,8 @@ tags:
 - 函数式编程
 - Kotlin
   
-thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/uploadPic?imageView2/1/w/200
-banner: http://7xpox6.com1.z0.glb.clouddn.com/image/uploadPic?imageView2/1/w/1024/h/460 
+thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-160627353.jpg?imageView2/1/w/200
+banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-160627353.jpg?imageView2/1/w/1024/h/460 
 
 ---
 

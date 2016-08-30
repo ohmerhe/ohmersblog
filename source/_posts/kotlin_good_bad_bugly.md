@@ -267,6 +267,12 @@ AppCompat 23.2.0 终于把 [VectorDrawables](https://plus.google.com/+AndroidDe
 
 Kotlin 是一门非常棒的语言。它比 Java 简洁多了，它还有一个非常优秀的标准库，有了这个标准库你就可以将大量为了维持 Java 勉强可用下去的库都删掉了。多亏了代码自动转换功能，你可以很方便的把 Java 代码转换成 Koltin 代码，并且这个功能会越来越完善。如果你是一名 Android 开发者，你真应该去试一试。
 
+原文链接：[Kotlin：The Good, The Bad, and The Ugly(译)](http://ohmerhe.com/2016/08/27/kotlin_good_bad_bugly/)
+
+英文原文：[Kotlin: The Good, The Bad, and The Ugly](https://medium.com/keepsafe-engineering/kotlin-the-good-the-bad-and-the-ugly-bf5f09b87e6f#.s0t91g9xn)
+
+欢迎大家投稿 [Kotlin Three](http://www.jianshu.com/collection/ce44081f781f)
+
 ## 参考资料 
 - **[1]** In the case of a *lateinit *property,*kotlin.UninitializedPropertyAccessException *will be thrown, where the*Delegates.notNull *will throw an *IllegalStateException*.
 - **[2]** There are some details about *lateinit *that are worth noting, especially if you plan on accessing a *lateinit *property from Java code. First is that *lateinit*cannot be applied to primitive types such as *Int *or *Double*. The second is that a *lateinit *property is backed by a field with the same visibility as the property, and this field is visible from Java. Additionally, that backing field can be freely set to null from Java. If any of those are issues for your use case, *Delegates.notNull *may be a better choice.

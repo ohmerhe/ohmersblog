@@ -1,6 +1,7 @@
 title: 沪江学习安卓端应用架构重构
 date: 2016-12-24 13:51:56
 tags: 
+- Android
   
 thumbnail: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-170083409.jpg?imageView2/1/w/200
 banner: http://7xpox6.com1.z0.glb.clouddn.com/image/stock-photo-170083409.jpg?imageView2/1/w/1024/h/460 
